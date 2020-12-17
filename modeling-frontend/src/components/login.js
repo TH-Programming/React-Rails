@@ -1,0 +1,45 @@
+import React from 'react'
+import { Component } from 'react'
+import { connect } from 'react-redux'
+
+
+class Login extends Component{
+    state = {
+        email:'', 
+        password:''
+    }
+    
+    formChange = event => {
+        this.setState({
+            ...this.state, 
+            [event.target.name]: event.target.value })
+    }
+
+    formSubmit = e => {
+e.preventDefault()
+console.log('submitted')
+this.setState({ password:'', email:''})
+    }
+
+    render(){
+        return(
+            <form onSubmit={this.formSubmit}>
+                <p>Email</p>
+                <input type="text" value={this.state.email} name="email" onChange={this.formChange}></input>
+                <p>Password</p>
+                <input type="text" value={this.state.password} name="password" onChange={this.formChange}></input>
+                <br/>
+                <input type="submit"></input>
+            </form>
+        )
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        add: (dispatch) => {dispatch({type: 'ADS'})}
+    })
+}
+
+export default connect(null, mapDispatchToProps)(Login)

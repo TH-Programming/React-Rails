@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
+import {userReducer} from './reducers/user'
+import {createStore} from 'redux'
+
+const store = createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <Provider store = { store }>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
