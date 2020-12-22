@@ -1,3 +1,5 @@
 class ApplicationController < ActionController::Base
-    enable_session :true
+    skip_before_action :verify_authenticity_token
+
+    enable_sessions :true
 end

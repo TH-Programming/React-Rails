@@ -43,7 +43,7 @@ class Signup extends Component{
 
 const mapDispatchToProps = (dispatch) => {
     return(
-        {add:(dispatch) => dispatch({type:"AFEW"})}
+        {signUp: (dispatch, payload) => dispatch({type:"SIGN_UP", payload: payload})}
     )
 }
 

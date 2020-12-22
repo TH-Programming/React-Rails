@@ -1,9 +1,15 @@
 import React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import { connect } from 'react-redux'
 
 class NavBar extends Component {
+
+    renderAdmin(){
+        if (this.props.currentUser.admin){
+            return (<Link to='/admin'> Admin </Link>)
+        }
+    }
 
     render(){
         return(
@@ -13,9 +19,15 @@ class NavBar extends Component {
             <Link to='/login'>Log In</Link><br/>
             <Link to='/about'>About Us</Link><br/>
             <Link to='/albums'>View Albums</Link><br/>
+            <br/>
+            {this.renderAdmin()}
         </div>
         )
     }
 }
 
-export default NavBar
+const mapStateToProps = ({ currentUser }) => {
+    return { currentUser }
+}
+
+export default connect(mapStateToProps)(NavBar)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
+import { logIn } from '../actions/userActions'
 
 
 class Login extends Component{
@@ -16,9 +17,9 @@ class Login extends Component{
     }
 
     formSubmit = e => {
-e.preventDefault()
-console.log('submitted')
-this.setState({ password:'', email:''})
+        e.preventDefault()
+        this.props.login(this.state)
+        this.setState({ password:'', email:''})
     }
 
     render(){
@@ -37,9 +38,8 @@ this.setState({ password:'', email:''})
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return ({
-        add: (dispatch) => {dispatch({type: 'ADS'})}
-    })
+    return ({ login: (data) => dispatch(logIn(data)) }
+    )
 }
 
 export default connect(null, mapDispatchToProps)(Login)

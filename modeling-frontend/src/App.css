@@ -35,4 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+
 }
+
+.main-content {
+  border: 5px;
+  margin: 20px;
+}
+
