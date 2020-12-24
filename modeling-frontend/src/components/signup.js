@@ -1,13 +1,15 @@
 import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
+import { signUp } from '../actions/userActions'
 
 
 class Signup extends Component{
     state = {
         username:'', 
         email:'', 
-        password:''
+        password:'',
+        passsword_confirmation: ''
     }
     
     formChange = event => {
@@ -18,8 +20,8 @@ class Signup extends Component{
 
     formSubmit = e => {
         e.preventDefault()
-        console.log('submitted')
-        this.setState({username:'', password:'', email:''})
+        this.props.signup(this.state)
+        this.setState({username:'', password:'', email:'', password_confirmation:''})
 
     }
 
@@ -32,7 +34,10 @@ class Signup extends Component{
                 <p>Email</p>
                 <input type="text" value={this.state.email} name="email" onChange={this.formChange}></input>
                 <p>Password</p>
-                <input type="text" value={this.state.password} name="password" onChange={this.formChange}></input>
+                <input type="password" value={this.state.password} name="password" onChange={this.formChange}></input>
+                <br/>
+                <p>Confirm Password</p>
+                <input type="password" value={this.state.password_confirmation} name="password_confirmation" onChange={this.formChange}></input>
                 <br/>
                 <input type="submit"></input>
             </form>
@@ -43,7 +48,7 @@ class Signup extends Component{
 
 const mapDispatchToProps = (dispatch) => {
     return(
-        {signUp: (dispatch, payload) => dispatch({type:"SIGN_UP", payload: payload})}
+        {signup: (data) => dispatch(signUp(data))}
     )
 }
 
