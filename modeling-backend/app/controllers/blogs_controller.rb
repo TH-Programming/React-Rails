@@ -13,7 +13,7 @@ class BlogsController < ApplicationController
 
     private
     def album_params
-        params.require(:blog).permit(:name, :content)
+        params.require(:blog).permit(:title, :content)
     end
 
 end
