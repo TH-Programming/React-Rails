@@ -1,3 +1,2 @@
-class Album < ApplicationRecord
-    has_many_attached :photographs
+class Blog < ApplicationRecord
 end

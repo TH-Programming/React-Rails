@@ -4,7 +4,8 @@
 const About = () => {
     return(
     <div class="main-content">
-        <h1>You're @ About!</h1>
+        <h1 class="about-header"></h1>
+        <p class="about-content"></p>
     </div>
     )
 }

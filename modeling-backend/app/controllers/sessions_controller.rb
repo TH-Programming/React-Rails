@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             
             render json: {
-                logged_in: true,
                 user: user
             } 
         else

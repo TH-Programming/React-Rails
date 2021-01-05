@@ -6,19 +6,23 @@ import { connect } from 'react-redux'
 
 class NavBar extends Component {
 
-    renderAdmin(){
-        if (this.props.user.admin){
-            return (<Link to='/admin'> Admin </Link>)
+    renderProfile(){
+        const { id } = this.props.user
+        if (id){
+            return (<Link to={`/user/${id}`}> Profile </Link>)
         }
     }
 
     renderSessionControl(){
         if (this.props.isLoggedIn) {
-            return(<Link to='/logout'>Logout</Link>)
+            return(
+                <>
+                <Link to="/logout">Logout</Link>
+                </>
+            )
         } else {
             return(
                 <>
-                <Link to='/signup'>Sign up</Link><br/>
                 <Link to='/login'>Log In</Link><br/>
                 </>
             )
@@ -29,10 +33,10 @@ class NavBar extends Component {
         return(
         <div>
             <h4 style={{color:'red'}}>navbar styled vertical right</h4>
-            <Link to='/about'>About Us</Link><br/>
-            <Link to='/albums'>View Albums</Link><br/>
+            <Link to='/about'>About</Link><br/>
+            <Link to='/blog'>View Blog</Link><br/>
             <br/>
-            {this.renderAdmin()}<br/>
+            {this.renderProfile()}<br/>
             <br/>
             {this.renderSessionControl()}
         </div>
@@ -44,4 +48,10 @@ const mapStateToProps = ({ isLoggedIn, user }) => {
     return { isLoggedIn, user }
 }
 
-export default connect(mapStateToProps)(NavBar)
+const mapDispatchToProps = (dispatch) => {
+    return {
+      logout: () => dispatch({type: "LOGOUT"})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)

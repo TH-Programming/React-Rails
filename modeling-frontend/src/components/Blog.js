@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Picture = () => {
+const BlogPost = () => {
     return(
-        <h1>You're @ Picture!</h1>
+        <h1>You're @ Blog!</h1>
     )
 }
 

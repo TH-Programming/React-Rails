@@ -1,19 +1,19 @@
-class AlbumsController < ApplicationController
+class BlogsController < ApplicationController
 
 
     def index
-        albums = Album.all
+        blog = Blog.all
     
-        render json: albums, include: :photos
+        render json: blog, include: :photos
     end
 
     def create
-        album = Album.new(album_params)
+        blog = Blog.new(blog_params)
     end
 
     private
     def album_params
-        params.require(:album).permit(:name, :premium?)
+        params.require(:blog).permit(:name, :content)
     end
 
 end

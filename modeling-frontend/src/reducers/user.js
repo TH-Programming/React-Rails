@@ -1,10 +1,10 @@
-export function userReducer(state = {isLoggedIn: false, user: {admin: false}}, action){
+export function userReducer(state = {isLoggedIn: false, user: {}}, action){
     switch (action.type){
     case ("LOGIN"):
         return {...state, user: action.payload, isLoggedIn: true} 
     
     case ("LOGOUT"):
-        return {...state, user: {admin: false}}
+        return {...state, user: {}, isLoggedIn: false}
 
     default:
     return state
