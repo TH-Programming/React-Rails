@@ -1,14 +1,14 @@
-export function blogReducer(state = {blogs:[]}, action){
+export function blogReducer(state = {all:[]}, action){
     switch (action.type){
     case ("GET_BLOGS"):
-        console.log({...state, blogs: action.payload})
-        return {...state, blogs: action.payload} 
+        console.log({...state, all: action.payload})
+        return {...state, all: action.payload} 
 
     case ("NEW_BLOG"):
-        return {...state, blogs: state.blogs.concat(action.payload)}
+        return {...state, all: state.all.concat(action.payload)}
 
     case ("DELETE_BLOG"):
-        return {...state, blogs: state.blogs.filter(blog => blog.id !== action.payload.id)}
+        return {...state, all: state.all.filter(blog => blog.id !== action.payload.id)}
 
     default:
     return state

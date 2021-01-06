@@ -26,7 +26,7 @@ class NavBar extends Component {
 
     render(){
         return(
-        <div class="navbar">
+        <div className="navbar">
             <Link to='/about'>About</Link><br/>
             <Link to='/blogs'>View Blog</Link><br/>
             <br/>
@@ -36,8 +36,8 @@ class NavBar extends Component {
     }
 }
 
-const mapStateToProps = ({ isLoggedIn, user }) => {
-    return { isLoggedIn, user }
+const mapStateToProps = (state) => {
+    return { isLoggedIn: state.user.isLoggedIn }
 }
 
 const mapDispatchToProps = (dispatch) => {

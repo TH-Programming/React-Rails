@@ -22,11 +22,12 @@ class App extends Component {
   loginStatus = () => {
     fetch('http://localhost:3001/logged_in', {
       headers: {
-        "withCredentials": true
+        "withCredentials": true,
+        "accept": "application/json"
       }
     })
     .then(response => {
-      if (response.data.logged_in) {
+      if (response.logged_in) {
         this.props.login(response)
       } else {
         this.props.logout()

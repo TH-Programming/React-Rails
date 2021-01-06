@@ -4,11 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
+import {blogReducer} from './reducers/blogs'
 import {userReducer} from './reducers/user'
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
+import { combineReducers } from 'redux'
 
-const store = createStore(userReducer, applyMiddleware(thunk))
+const rootReducer = combineReducers({
+  user: userReducer, 
+  blog: blogReducer
+  })
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>

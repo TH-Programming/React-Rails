@@ -1,8 +1,8 @@
 export const getBlogs = () => {
     return(dispatch) => {
         fetch('http://localhost:3001/blogs')
-        .then(resp => resp.json)
-        .then(data => dispatch({type: "GETBLOGS", payload: data}))
+        .then(resp => resp.json())
+        .then(data => dispatch({type: "GET_BLOGS", payload: data}))
         .catch(error => console.log(error))
     }
 }

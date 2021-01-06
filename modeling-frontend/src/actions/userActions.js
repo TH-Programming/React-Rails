@@ -36,8 +36,7 @@ export const logIn = (data) => {
             },
             body: JSON.stringify({user: data})
         })
-          .then(resp => {
-            debugger  
+          .then(resp => { 
             return resp.json()
             })
           .then(serverdata => {

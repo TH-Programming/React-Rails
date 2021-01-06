@@ -1,6 +1,7 @@
 import React from 'react'
 import { getBlogs } from "../actions/blogActions"
 import {connect} from "react-redux"
+import BlogPost from "./Blog"
 
 class BlogIndex extends React.Component{
     componentDidMount(){
@@ -9,17 +10,19 @@ class BlogIndex extends React.Component{
 
     
     render(){
-        return(
-            <div className="main-content">
-            <h1 class='main-content'>You're @ BlogIndex!</h1>
-            </div>
-        )
-    }
-}
+        console.log(this.props)
+            return(
+                <div className="main-content">
+                {this.props.blogs.map((blog) => <BlogPost key={blog.id} blog={blog}/>)}
+                </div>
+            )
+        }}
+
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return(
-        {blogs: state.blogs}
+        {blogs: state.blog.all}
     )
 }
 

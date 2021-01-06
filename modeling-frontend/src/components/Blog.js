@@ -1,10 +1,15 @@
 import React from 'react'
 
-const BlogPost = () => {
+class BlogPost extends React.Component{
 
-    return(
-        <h1>You're @ Blog!</h1>
-    )
+    render(){
+        return(
+        <div id={this.props.blog.id}>
+            <h1>{this.props.blog.title}</h1>
+            <p>{this.props.blog.content}</p>
+        </div>
+        )
+    }
 }
 
-export default Picture
+export default BlogPost

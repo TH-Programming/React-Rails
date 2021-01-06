@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
         
         if user && user.authenticate(session_params[:password])
             session[:user_id] = user.id
+            puts session
             
             render json: {
                 user: user
