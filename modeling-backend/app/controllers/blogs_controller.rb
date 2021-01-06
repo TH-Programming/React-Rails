@@ -2,10 +2,12 @@ class BlogsController < ApplicationController
 
 
     def index
-        blog = Blog.all
+        blogs = Blog.all
     
-        render json: blog, include: :photos
+        render json: blogs
     end
+
+    
 
     def create
         blog = Blog.new(blog_params)

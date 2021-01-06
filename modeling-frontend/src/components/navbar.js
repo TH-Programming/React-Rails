@@ -6,17 +6,12 @@ import { connect } from 'react-redux'
 
 class NavBar extends Component {
 
-    renderProfile(){
-        const { id } = this.props.user
-        if (id){
-            return (<Link to={`/user/${id}`}> Profile </Link>)
-        }
-    }
 
     renderSessionControl(){
         if (this.props.isLoggedIn) {
             return(
                 <>
+                <Link to="/blogs/new"> New Post </Link><br/>
                 <Link to="/logout">Logout</Link>
                 </>
             )
@@ -31,12 +26,9 @@ class NavBar extends Component {
 
     render(){
         return(
-        <div>
-            <h4 style={{color:'red'}}>navbar styled vertical right</h4>
+        <div class="navbar">
             <Link to='/about'>About</Link><br/>
             <Link to='/blog'>View Blog</Link><br/>
-            <br/>
-            {this.renderProfile()}<br/>
             <br/>
             {this.renderSessionControl()}
         </div>

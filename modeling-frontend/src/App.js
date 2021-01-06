@@ -5,12 +5,12 @@ import './App.css';
 import NavBar from './components/navbar'
 import Home from './components/home'
 import Login from './components/login'
-import Albums from './components/albums'
 import About from './components/about'
 import React from 'react'
-import Signup from './components/signup'
 import { Component } from 'react'
 import Banner from './components/banner'
+import BlogIndex from './components/BlogIndex'
+import NewBlog from './components/newblog'
 
 class App extends Component {
 
@@ -44,9 +44,9 @@ class App extends Component {
         <NavBar />
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="/signup" component={Signup}/>
             <Route path="/about" component={About}/>
-            <Route path="/albums" component={Albums}/>
+            <Route path="/blogs/new" component={NewBlog}/>
+            <Route path="/blogs" component={BlogIndex}/>
             <Route path='/login' component={Login}/>
           </Switch>
       </Router>

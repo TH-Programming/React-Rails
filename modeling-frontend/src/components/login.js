@@ -24,7 +24,8 @@ class Login extends Component{
 
     render(){
         return(
-            <form onSubmit={this.formSubmit}>
+            <div className="main-content">
+            <form id="login-form" onSubmit={this.formSubmit}>
                 <p>Email</p>
                 <input type="text" value={this.state.email} name="email" onChange={this.formChange}></input>
                 <p>Password</p>
@@ -32,6 +33,7 @@ class Login extends Component{
                 <br/>
                 <input type="submit"></input>
             </form>
+            </div>
         )
 
     }
