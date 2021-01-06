@@ -28,7 +28,7 @@ class NavBar extends Component {
         return(
         <div class="navbar">
             <Link to='/about'>About</Link><br/>
-            <Link to='/blog'>View Blog</Link><br/>
+            <Link to='/blogs'>View Blog</Link><br/>
             <br/>
             {this.renderSessionControl()}
         </div>

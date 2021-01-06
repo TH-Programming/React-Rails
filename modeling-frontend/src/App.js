@@ -11,6 +11,7 @@ import { Component } from 'react'
 import Banner from './components/banner'
 import BlogIndex from './components/BlogIndex'
 import NewBlog from './components/newblog'
+import Footer from "./components/footer"
 
 class App extends Component {
 
@@ -21,9 +22,7 @@ class App extends Component {
   loginStatus = () => {
     fetch('http://localhost:3001/logged_in', {
       headers: {
-        "withCredentials": true,
-        "content-type": "application/json",
-        "accept": "application-json"
+        "withCredentials": true
       }
     })
     .then(response => {
@@ -49,6 +48,7 @@ class App extends Component {
             <Route path="/blogs" component={BlogIndex}/>
             <Route path='/login' component={Login}/>
           </Switch>
+        <Footer/>
       </Router>
     </div>
   );

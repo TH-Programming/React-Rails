@@ -11,10 +11,15 @@ class BlogsController < ApplicationController
 
     def create
         blog = Blog.new(blog_params)
+        if blog.save
+            render json: blog
+        else
+            render json: blog.errors
+        end
     end
 
     private
-    def album_params
+    def blog_params
         params.require(:blog).permit(:title, :content)
     end
 

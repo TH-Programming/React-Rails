@@ -39,6 +39,7 @@
 }
 
 .main-content {
+  justify-content: center;
   position: fixed;
   left : 220px;
   top: 200px;

@@ -38,3 +38,16 @@ code {
   position: fixed;
   left: 500px;
 }
+
+#footer{
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
