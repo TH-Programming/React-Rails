@@ -11,8 +11,6 @@ class NewBlog extends Component {
 
     //? changes the state when an input changes
     change = (event) => {
-        console.log(event.target.name)
-        console.log(this.state)
         this.setState({...this.state, [event.target.name]: event.target.value})
     }
 
@@ -24,6 +22,7 @@ class NewBlog extends Component {
     }
 
     render(){
+        if(this.props.isLoggedIn){
         return(<div class="main-content">
             <h1> What Are You Writing Today?</h1>
             <form onSubmit = {this.submit}><br/>
@@ -34,7 +33,14 @@ class NewBlog extends Component {
                 <input type="submit"/>
             </form>
         </div>)
+        } else {
+            return(<h1 class="main-content"> Please log in to view this page</h1>)
+        }
     }
 }
 
-export default connect(null, {createBlog})(NewBlog)
+const mapStateToProps = (state) => {
+    return({ isLoggedIn: state.user.isLoggedIn })
+}
+
+export default connect(mapStateToProps, { createBlog })(NewBlog)

@@ -27,9 +27,9 @@ class Login extends Component{
         return(
             <div className="main-content">
             <form id="login-form" onSubmit={this.formSubmit}>
-                <label htmlFor="email">Email</label>
-                <input type="text" value={this.state.email} name="email" onChange={this.formChange}></input>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="email"> Email:</label>
+                <input type="text" value={this.state.email} name="email" onChange={this.formChange}></input><br/><br/>
+                <label htmlFor="password">Password:</label>
                 <input type="password" value={this.state.password} name="password" onChange={this.formChange}></input>
                 <br/>
                 <input type="submit"></input>

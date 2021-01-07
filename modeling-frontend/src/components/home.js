@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
     return(
-        <h1 className='main-content'>You're @ Home!</h1>
+        <h1 className='main-content' id="home">Welcome To Huffman Blogs!</h1>
     )
 }
 

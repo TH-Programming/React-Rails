@@ -20,8 +20,8 @@ class BlogIndex extends React.Component{
                     {blogs.map((blog) => <Link to={`/blogs/${blog.id}`} key={blog.id}><BlogCard key={blog.id} blog={blog}/></Link>)}
                     <Route exact path={routerProps.match.url} render={() => <h3 className="blog-waiting">Select a blog to view.</h3>} />
                     <Route path={`${routerProps.match.url}/:blogId`} render={routerProps => {
-                        console.log("rendered!")
                         return(<BlogShow { ...routerProps } blogs={this.props.blogs}/>)
+                    
                     }} />
                 </div>
             )

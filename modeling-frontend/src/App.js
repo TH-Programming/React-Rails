@@ -12,6 +12,7 @@ import Banner from './components/banner'
 import BlogIndex from './components/BlogIndex'
 import NewBlog from './components/newblog'
 import Footer from "./components/footer"
+import Logout from "./components/logout"
 
 class App extends Component {
 
@@ -48,6 +49,7 @@ class App extends Component {
             <Route path="/blogs/new" component={NewBlog}/>
             <Route path="/blogs" render={routerProps => <BlogIndex routerProps={routerProps}/>} />
             <Route path='/login' component={Login}/>
+            <Route path='/logout' component={Logout}/>
           </Switch>
         <Footer/>
       </Router>
