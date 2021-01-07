@@ -4,7 +4,7 @@ import React from 'react'
 const Banner = () => {
     return(
         <div className="banner">
-            <h1 className="banner"> Banner Here </h1>
+            <h1 className="banner"> Huffman Blogs </h1>
         </div>
     )
 }

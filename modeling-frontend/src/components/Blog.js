@@ -1,15 +1,16 @@
 import React from 'react'
+// import { BrowserRouter as Route } from "react-router-dom"
+// import {BlogShow} from './blogShow'
 
-class BlogPost extends React.Component{
+class BlogCard extends React.Component{
 
     render(){
         return(
-        <div id={this.props.blog.id}>
+        <div className="blog-card">
             <h1>{this.props.blog.title}</h1>
-            <p>{this.props.blog.content}</p>
         </div>
         )
     }
 }
 
-export default BlogPost
+export default BlogCard

@@ -27,9 +27,9 @@ class NewBlog extends Component {
         return(<div class="main-content">
             <h1> What Are You Writing Today?</h1>
             <form onSubmit = {this.submit}><br/>
-                <label for="title">Title</label>
+                <label for="title">Title</label><br/>
                 <input type="text" name="title" value={this.state.title} onChange={this.change}/><br/>
-                <label for="content">  Content</label>
+                <label for="content">  Content</label><br/>
                 <textarea rows="20" cols="50" name="content" value={this.state.content} onChange={this.change}/><br/>
                 <input type="submit"/>
             </form>

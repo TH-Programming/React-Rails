@@ -5,4 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(email: "ty.huff24@gmail.com", password: "eec141619.")
+
+require 'faker'
+
+User.create(email: "ty.huff24@gmail.com", password: "eec141619.", username: "t.huff")
+
+5.times do
+    Blog.create(title: Faker::Lorem.words(number: 3).join(" "), content: Faker::Lorem.paragraph_by_chars(number: 256))
+end

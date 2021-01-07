@@ -46,7 +46,7 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
             <Route path="/blogs/new" component={NewBlog}/>
-            <Route path="/blogs" component={BlogIndex}/>
+            <Route path="/blogs" render={routerProps => <BlogIndex routerProps={routerProps}/>} />
             <Route path='/login' component={Login}/>
           </Switch>
         <Footer/>
