@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { logout } from './actions/userActions'
+import { getBlogs } from './actions/blogActions'
 import './App.css';
 import NavBar from './components/navbar'
 import Home from './components/home'
@@ -18,6 +19,7 @@ class App extends Component {
 
   componentDidMount(){
     this.loginStatus()
+    this.props.getBlogs()
   }
 
   loginStatus = () => {
@@ -27,6 +29,7 @@ class App extends Component {
         "accept": "application/json"
       }
     })
+    .then(resp => resp.json())
     .then(response => {
       if (response.logged_in) {
         this.props.login(response)
@@ -61,7 +64,8 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
       login: (data) => dispatch({type: "LOGIN", payload: data}),
-      logout: () => dispatch(logout())
+      logout: () => dispatch(logout()),
+      getBlogs: () => dispatch(getBlogs())
     }
 }
 

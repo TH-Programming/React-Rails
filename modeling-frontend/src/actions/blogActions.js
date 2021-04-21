@@ -9,7 +9,7 @@ export const getBlogs = () => {
 
 export const createBlog = (data) => {
     return(dispatch) => {
-        fetch('http://localhost:3001/blogs', {
+        return(fetch('http://localhost:3001/blogs', {
             method: "POST",
             headers:{
                 "content-type":"application/json",
@@ -19,6 +19,6 @@ export const createBlog = (data) => {
         })
         .then(resp => resp.json)
         .then(data => dispatch({type: "NEW_BLOG", payload: data}))
-        .catch(error => console.log(error))
+        .catch(error => console.log(error)))
     }
 }

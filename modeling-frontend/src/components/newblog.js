@@ -17,22 +17,21 @@ class NewBlog extends Component {
         //? submits form to backend, resets state
     submit = (event) => {
         event.preventDefault()
-        this.props.createBlog(this.state)
-        this.setState({title:"", content:""})
+        this.props.createBlog(this.state).then(() => this.props.history.push('/blogs'))
     }
 
     render(){
         if(this.props.isLoggedIn){
-        return(<div class="main-content">
-            <h1> What Are You Writing Today?</h1>
-            <form onSubmit = {this.submit}><br/>
-                <label for="title">Title</label><br/>
-                <input type="text" name="title" value={this.state.title} onChange={this.change}/><br/>
-                <label for="content">  Content</label><br/>
-                <textarea rows="20" cols="50" name="content" value={this.state.content} onChange={this.change}/><br/>
-                <input type="submit"/>
-            </form>
-        </div>)
+            return(<div class="main-content">
+                <h1> What Are You Writing Today?</h1>
+                <form onSubmit = {this.submit}><br/>
+                    <label for="title">Title</label><br/>
+                    <input type="text" name="title" value={this.state.title} onChange={this.change}/><br/>
+                    <label for="content">  Content</label><br/>
+                    <textarea rows="20" cols="50" name="content" value={this.state.content} onChange={this.change}/><br/>
+                    <input type="submit"/>
+                </form>
+            </div>)
         } else {
             return(<h1 class="main-content"> Please log in to view this page</h1>)
         }

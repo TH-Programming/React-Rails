@@ -14,14 +14,12 @@ class BlogIndex extends React.Component{
     
     render(){
         const { routerProps, blogs } = this.props
-        console.log(this.props)
             return(
                 <div className="main-content">
                     {blogs.map((blog) => <Link to={`/blogs/${blog.id}`} key={blog.id}><BlogCard key={blog.id} blog={blog}/></Link>)}
                     <Route exact path={routerProps.match.url} render={() => <h3 className="blog-waiting">Select a blog to view.</h3>} />
                     <Route path={`${routerProps.match.url}/:blogId`} render={routerProps => {
-                        return(<BlogShow { ...routerProps } blogs={this.props.blogs}/>)
-                    
+                        return(<BlogShow { ...routerProps } blogs={this.props.blogs}/>)                  
                     }} />
                 </div>
             )
