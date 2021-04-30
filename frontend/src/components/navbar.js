@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 class NavBar extends Component {
 
-
+    //? renders nav based on isLoggedIn prop
     renderSessionControl(){
         if (this.props.isLoggedIn) {
             return(

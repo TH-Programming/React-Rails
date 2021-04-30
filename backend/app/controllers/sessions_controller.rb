@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
         
         if user && user.authenticate(session_params[:password])
             session[:user_id] = user.id
-            puts session
             
             render json: {
                 user: user
@@ -19,7 +18,7 @@ class SessionsController < ApplicationController
     end
 
     def is_logged_in?
-        if logged_in? && current_user
+        if current_user
           render json: {
             logged_in: true,
             user: current_user

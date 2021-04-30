@@ -1,5 +1,5 @@
 if Rails.env === 'production' 
-    Rails.application.config.session_store :cookie_store, key: '_WolfBunnyCams', domain: 'your-frontend-domain'
+    Rails.application.config.session_store :cookie_store, key: '_React-Rails', domain: 'your-frontend-domain'
   else
-    Rails.application.config.session_store :cookie_store, key: '_WolfBunnyCams' 
+    Rails.application.config.session_store :cookie_store, key: '_React-Rails' 
   end

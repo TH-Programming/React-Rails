@@ -22,6 +22,7 @@ class App extends Component {
     this.props.getBlogs()
   }
 
+  //? queries backend for active session
   loginStatus = () => {
     fetch('http://localhost:3001/logged_in', {
       headers: {
@@ -31,6 +32,7 @@ class App extends Component {
     })
     .then(resp => resp.json())
     .then(response => {
+      console.log(response)
       if (response.logged_in) {
         this.props.login(response)
       } else {

@@ -10,12 +10,14 @@ class Login extends Component{
         password:''
     }
     
+    //? handles form state
     formChange = event => {
         this.setState({
             ...this.state, 
             [event.target.name]: event.target.value })
     }
 
+    //? 
     formSubmit = e => {
         e.preventDefault()
         this.props.login(this.state)

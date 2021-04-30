@@ -14,7 +14,7 @@ class NewBlog extends Component {
         this.setState({...this.state, [event.target.name]: event.target.value})
     }
 
-        //? submits form to backend, resets state
+    //? submits form to backend, resets state
     submit = (event) => {
         event.preventDefault()
         this.props.createBlog(this.state).then(() => this.props.history.push('/blogs'))
@@ -22,7 +22,7 @@ class NewBlog extends Component {
 
     render(){
         if(this.props.isLoggedIn){
-            return(<div class="main-content">
+            return(<div className="main-content">
                 <h1> What Are You Writing Today?</h1>
                 <form onSubmit = {this.submit}><br/>
                     <label for="title">Title</label><br/>
